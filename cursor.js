@@ -22,7 +22,7 @@
 
   // Lower = more trailing lag, higher = tighter tracking. 0.18 reads as a
   // smooth, slightly lazy follow rather than an instant lock.
-  var EASE = 0.18;
+  var EASE = 0.10;
 
   window.addEventListener('mousemove', function (e) {
     targetX = e.clientX;
