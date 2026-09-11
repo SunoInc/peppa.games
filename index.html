@@ -18,28 +18,22 @@
 <body>
 
   <section class="kv" aria-label="Hero">
-    <div class="kv-backdrop" aria-hidden="true"></div>
+    <canvas id="kv-fluid" class="kv-fluid" aria-hidden="true"></canvas>
 
     <header class="kv-nav">
-      <a href="#" class="kv-nav__logo"><!-- TODO: replace with your logo/name -->YOUR STUDIO</a>
+      <!-- TODO: replace with your own logo/name -->
+      <a href="#" class="kv-nav__logo"><strong>YOUR</strong> studio</a>
 
-      <nav class="kv-nav__locales" aria-label="Language">
-        <a href="#" aria-current="true">EN</a>
-        <a href="#">JP</a>
-        <a href="#">VN</a>
-      </nav>
-
-      <nav class="kv-nav__menu" aria-label="Main menu">
-        <!-- TODO: replace with your own menu items -->
-        <a href="#">WORK</a>
-        <a href="#">ABOUT</a>
-        <a href="#">CONTACT</a>
-      </nav>
+      <button type="button" class="kv-nav__toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
     </header>
 
     <div class="kv-content">
-      <!-- TODO: replace with your own headline copy -->
-      <h1 class="kv-headline">YOUR VISION,<br />UNBOUND</h1>
+      <!-- TODO: replace with your own headline copy. Any letter "i" is
+           auto-italicized by script.js to echo monopo's wordmark detail. -->
+      <h1 class="kv-headline" data-italic-i>Your vision,<br />unbound</h1>
     </div>
 
     <div class="scroll-badge" aria-hidden="true">
@@ -55,5 +49,7 @@
     </div>
   </section>
 
+  <script src="fluid.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
