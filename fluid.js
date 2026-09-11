@@ -13,19 +13,30 @@
   var ctx = canvas.getContext('2d');
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  var width = 0;
+  // The whole thing is blurred 30px in CSS afterwards, so drawing at full
+  // device resolution (e.g. ~3800x1900 on a large/retina display) buys no
+  // visible sharpness — it only makes every radial-gradient fill far more
+  // expensive, which on a big monitor was slow enough for the animation to
+  // read as frozen. Render into a small internal buffer instead and let the
+  // GPU upscale it via CSS width/height; the blur hides the resulting
+  // softness completely, and redraw cost stays flat regardless of viewport.
+  var RENDER_MAX = 560; // longest internal edge, in px
+
+  var width = 0;  // internal drawing-space size (used by all the math below)
   var height = 0;
-  var dpr = Math.min(window.devicePixelRatio || 1, 2);
 
   function resize() {
     var rect = canvas.parentElement.getBoundingClientRect();
-    width = rect.width;
-    height = rect.height;
-    canvas.width = Math.round(width * dpr);
-    canvas.height = Math.round(height * dpr);
-    canvas.style.width = width + 'px';
-    canvas.style.height = height + 'px';
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var dispWidth = rect.width;
+    var dispHeight = rect.height;
+    var scale = Math.min(1, RENDER_MAX / Math.max(dispWidth, dispHeight));
+    width = Math.max(1, Math.round(dispWidth * scale));
+    height = Math.max(1, Math.round(dispHeight * scale));
+    canvas.width = width;
+    canvas.height = height;
+    canvas.style.width = dispWidth + 'px';
+    canvas.style.height = dispHeight + 'px';
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
   }
 
   // Each blob drifts along its own independent path — a slow primary sweep
@@ -80,11 +91,18 @@
     ctx.globalCompositeOperation = 'source-over';
   }
 
+  // 30fps is plenty for slow liquid drift and halves the redraw cost again
+  // versus running at whatever refresh rate the display offers.
+  var FRAME_INTERVAL = 1000 / 30;
   var start = null;
+  var lastDraw = -Infinity;
+
   function frame(ts) {
     if (start === null) start = ts;
-    var t = (ts - start) / 1000; // seconds
-    render(t);
+    if (ts - lastDraw >= FRAME_INTERVAL) {
+      lastDraw = ts;
+      render((ts - start) / 1000);
+    }
     if (!reduceMotion) requestAnimationFrame(frame);
   }
 
