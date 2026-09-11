@@ -28,20 +28,29 @@
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
-  // Each blob drifts along its own independent, slow Lissajous-style path
-  // so the composition never feels like it's looping on a fixed cycle.
+  // Each blob drifts along its own independent path — a slow primary sweep
+  // (fx/fy, full loop roughly every 15-25s) plus a faster, smaller secondary
+  // wobble (fx2/fy2) layered on top so the motion reads as organic liquid
+  // turbulence rather than a single clean circle. NOTE: fx/fy are angular
+  // frequencies in rad/s — period = 2*PI / f, so keep them in the ~0.2-0.45
+  // range for a "flowing" feel; anything much smaller reads as static.
   var blobs = [
-    { cx: 0.22, cy: 0.28, rx: 0.55, ry: 0.55, ax: 0.10, ay: 0.08, fx: 0.021, fy: 0.017, p: 0.0, color: 'rgba(70, 84, 60, 0.85)' },   // olive
-    { cx: 0.68, cy: 0.55, rx: 0.60, ry: 0.60, ax: 0.09, ay: 0.11, fx: 0.015, fy: 0.023, p: 1.7, color: 'rgba(138, 112, 74, 0.80)' }, // bronze
-    { cx: 0.80, cy: 0.20, rx: 0.42, ry: 0.42, ax: 0.08, ay: 0.09, fx: 0.026, fy: 0.019, p: 3.1, color: 'rgba(216, 180, 120, 0.55)' },// amber highlight
-    { cx: 0.35, cy: 0.75, rx: 0.50, ry: 0.50, ax: 0.07, ay: 0.10, fx: 0.018, fy: 0.014, p: 4.4, color: 'rgba(46, 58, 42, 0.75)' },  // deep olive
-    { cx: 0.55, cy: 0.40, rx: 0.65, ry: 0.65, ax: 0.06, ay: 0.06, fx: 0.011, fy: 0.013, p: 2.2, color: 'rgba(12, 10, 8, 0.55)' }    // dark sweep (multiply)
+    { cx: 0.22, cy: 0.28, rx: 0.58, ry: 0.58, ax: 0.24, ay: 0.20, fx: 0.26, fy: 0.21, ax2: 0.06, ay2: 0.07, fx2: 0.62, fy2: 0.55, p: 0.0, color: 'rgba(80, 96, 66, 0.9)' },    // olive
+    { cx: 0.68, cy: 0.55, rx: 0.62, ry: 0.62, ax: 0.22, ay: 0.26, fx: 0.19, fy: 0.29, ax2: 0.07, ay2: 0.06, fx2: 0.48, fy2: 0.66, p: 1.7, color: 'rgba(150, 122, 80, 0.85)' }, // bronze
+    { cx: 0.80, cy: 0.20, rx: 0.44, ry: 0.44, ax: 0.20, ay: 0.22, fx: 0.33, fy: 0.24, ax2: 0.05, ay2: 0.05, fx2: 0.71, fy2: 0.58, p: 3.1, color: 'rgba(226, 190, 128, 0.6)' }, // amber highlight
+    { cx: 0.35, cy: 0.75, rx: 0.52, ry: 0.52, ax: 0.19, ay: 0.24, fx: 0.22, fy: 0.17, ax2: 0.06, ay2: 0.07, fx2: 0.53, fy2: 0.44, p: 4.4, color: 'rgba(50, 64, 46, 0.8)' },    // deep olive
+    { cx: 0.55, cy: 0.40, rx: 0.68, ry: 0.68, ax: 0.14, ay: 0.14, fx: 0.14, fy: 0.16, ax2: 0.04, ay2: 0.04, fx2: 0.37, fy2: 0.41, p: 2.2, color: 'rgba(12, 10, 8, 0.6)' }     // dark sweep (multiply)
   ];
 
   function drawBlob(b, t) {
-    var x = (b.cx + Math.sin(t * b.fx + b.p) * b.ax) * width;
-    var y = (b.cy + Math.cos(t * b.fy + b.p * 1.3) * b.ay) * height;
-    var r = Math.max(width, height) * b.rx;
+    var x = (b.cx
+      + Math.sin(t * b.fx + b.p) * b.ax
+      + Math.sin(t * b.fx2 + b.p * 2.1) * b.ax2) * width;
+    var y = (b.cy
+      + Math.cos(t * b.fy + b.p * 1.3) * b.ay
+      + Math.cos(t * b.fy2 + b.p * 1.7) * b.ay2) * height;
+    var pulse = 1 + 0.1 * Math.sin(t * 0.3 + b.p);
+    var r = Math.max(width, height) * b.rx * pulse;
 
     var grad = ctx.createRadialGradient(x, y, 0, x, y, r);
     grad.addColorStop(0, b.color);

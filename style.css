@@ -103,7 +103,7 @@ a { color: inherit; text-decoration: none; }
   display: block;
   width: 100%;
   height: 100%;
-  filter: blur(38px) saturate(1.15);
+  filter: blur(30px) saturate(1.2);
   transform: scale(1.06); /* hide the blurred edge */
 }
 
