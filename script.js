@@ -1,14 +1,8 @@
 /* ==========================================================================
-   KV page behavior — italic-"i" wordmark detail + menu toggle affordance.
+   KV page behavior — menu toggle affordance.
    No routing/menu panel is wired up yet since this build is KV-only.
    ========================================================================== */
 (function () {
-  // Wrap every "i" (and accented variants) in the headline with <em> so it
-  // renders italic, echoing monopo's stylized wordmark treatment.
-  document.querySelectorAll('[data-italic-i]').forEach(function (el) {
-    el.innerHTML = el.innerHTML.replace(/([iíìîïĩ])/gi, '<em>$1</em>');
-  });
-
   var toggle = document.querySelector('.kv-nav__toggle');
   if (toggle) {
     toggle.addEventListener('click', function () {
