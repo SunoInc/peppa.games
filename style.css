@@ -224,7 +224,7 @@ a { color: inherit; text-decoration: none; }
   line-height: var(--leading-heading-lg);
   letter-spacing: -0.01em;
   color: var(--color-paper);
-  max-width: 20ch;
+  max-width: 28ch;
 }
 
 /* script.js wraps every "i" in the headline with <em> — style it as a
