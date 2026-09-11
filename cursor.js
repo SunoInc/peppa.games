@@ -43,9 +43,6 @@
     if (hasMoved) dot.classList.add('is-visible');
   });
 
-  window.addEventListener('mousedown', function () { dot.classList.add('is-pressed'); });
-  window.addEventListener('mouseup', function () { dot.classList.remove('is-pressed'); });
-
   function apply(x, y) {
     dot.style.transform = 'translate3d(' + x + 'px, ' + y + 'px, 0)';
   }
