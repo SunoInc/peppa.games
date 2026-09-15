@@ -82,7 +82,7 @@ Please warn others before sharing major spoilers. Content with unmarked spoilers
 - **Reporting.** You can report reviews, comments, and users from within the app. We review reports as quickly as we can, aiming to do so within 24 hours, and take action when appropriate.
 - **Blocking.** When you block someone, you and that person will no longer see each other's profiles, reviews, or comments, and any follows between you are removed. The blocked person is not notified.
 - **Our actions.** If we believe content or conduct violates these Terms or the law, we may hide or remove content, limit features, suspend or terminate accounts, and report illegal content to law enforcement, with or without notice, to the extent permitted by law.
-- **Disagreeing with a decision.** If you think we made a mistake, contact us at the address in Section 20.
+- **Disagreeing with a decision.** If you think we made a mistake, contact us at the address in Section 19.
 - **Copyright complaints.** If you believe content in Peppa infringes your copyright, email us with: a description of the copyrighted work; where the content appears in Peppa; your contact information; a statement that you believe in good faith that the use is not authorized; a statement that the information in your notice is accurate and that you are the owner or authorized to act for the owner; and your physical or electronic signature.
 
 ## 9. Intellectual Property
@@ -112,17 +112,13 @@ To the extent permitted by law, you agree to compensate Peppa for losses and cos
 
 - You may stop using the Service and delete your account at any time.
 - We may suspend or terminate your access to the Service if you violate these Terms, if we are required to by law, if your use creates risk for Peppa or other users, or if we discontinue the Service.
-- Sections that by their nature should continue after termination (including Sections 6, 9, and 11 through 19) will continue to apply.
+- Sections that by their nature should continue after termination (including Sections 6, 9, and 11 through 18) will continue to apply.
 
 ## 15. Changes to These Terms
 
 We may update these Terms from time to time. We will post the updated Terms with a new "Last updated" date. If a change is material, we will notify you in the app or by other reasonable means a reasonable period before it takes effect. If you keep using the Service after the changes take effect, you accept the updated Terms. If you do not agree, stop using the Service and delete your account.
 
-## 16. Governing Law and Jurisdiction
-
-These Terms are governed by the laws of Japan, without regard to conflict-of-law rules. The Tokyo District Court has exclusive jurisdiction as the court of first instance for any dispute relating to these Terms or the Service. This does not deprive you of the protection of mandatory consumer protection laws in your country of residence.
-
-## 17. Apple App Store Terms
+## 16. Apple App Store Terms
 
 If you downloaded Peppa from the Apple App Store, you also acknowledge and agree that:
 
@@ -136,7 +132,7 @@ If you downloaded Peppa from the Apple App Store, you also acknowledge and agree
 - You must comply with any applicable third-party terms when using the app.
 - Apple and its subsidiaries are third-party beneficiaries of these Terms. Once you accept these Terms, Apple has the right (and will be deemed to have accepted the right) to enforce these Terms against you as a third-party beneficiary.
 
-## 18. General
+## 17. General
 
 - These Terms and our Privacy Policy are the entire agreement between you and Peppa regarding the Service.
 - If any part of these Terms is found unenforceable, the rest remains in effect.
@@ -144,11 +140,11 @@ If you downloaded Peppa from the Apple App Store, you also acknowledge and agree
 - You may not transfer your rights or obligations under these Terms. We may transfer ours in connection with a merger, acquisition, or transfer of the Service.
 - We are not responsible for delays or failures caused by events beyond our reasonable control.
 
-## 19. Language
+## 18. Language
 
 These Terms are written in English. Any translation is provided for convenience only. If there is any conflict between the English version and a translation, the English version controls, to the extent permitted by law.
 
-## 20. Contact Us
+## 19. Contact Us
 
 **Peppa Team**
 
