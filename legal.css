@@ -1,0 +1,127 @@
+/* ==========================================================================
+   Legal pages (Terms of Service etc.) — plain Markdown documents rendered
+   by Jekyll into _layouts/legal.html. Reuses the tokens in style.css;
+   only document typography lives here.
+   ========================================================================== */
+
+/* style.css pins html/body to 100% height for the KV; documents need to scroll. */
+html.legal,
+html.legal body {
+  height: auto;
+}
+
+.legal-doc {
+  --legal-text: color-mix(in srgb, var(--color-paper) 80%, var(--color-obsidian));
+
+  max-width: 720px;
+  margin: 0 auto;
+  padding: calc(var(--nav-height) + var(--spacing-40)) var(--spacing-28) 120px;
+  font-family: var(--font-roobert);
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--legal-text);
+}
+
+html[lang="ja"] .legal-doc {
+  font-family: 'Inter', "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
+  line-height: 1.9;
+}
+
+.legal-doc__lang {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 0 var(--spacing-40);
+}
+
+/* Two classes deep so it beats the generic `.legal-doc a` underline below. */
+.legal-doc .legal-doc__lang a {
+  text-decoration: none;
+  font-size: var(--text-caption);
+  letter-spacing: 0.08em;
+  color: var(--color-paper);
+  border: 1px solid var(--color-slate-pill);
+  border-radius: var(--radius-full);
+  padding: 6px 14px;
+  transition: border-color 0.4s ease;
+}
+
+.legal-doc__lang a:hover {
+  border-color: var(--color-paper);
+}
+
+.legal-doc h1 {
+  margin: 0 0 var(--spacing-12);
+  font-weight: 300;
+  font-size: clamp(34px, 5vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--color-paper);
+  text-wrap: balance;
+}
+
+/* "Last updated" line directly under the title */
+.legal-doc h1 + p {
+  margin: 0 0 var(--spacing-40);
+  font-size: 14px;
+  color: var(--color-felt-gray);
+}
+
+.legal-doc h2 {
+  margin: var(--spacing-48) 0 var(--spacing-12);
+  padding-top: var(--spacing-28);
+  border-top: 1px solid var(--color-inkstone);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--color-paper);
+  text-wrap: balance;
+}
+
+.legal-doc p {
+  margin: 0 0 1em;
+}
+
+.legal-doc ul {
+  margin: 0 0 1em;
+  padding-left: 1.25em;
+}
+
+.legal-doc li {
+  margin: 0.5em 0;
+}
+
+.legal-doc li::marker {
+  color: var(--color-felt-gray);
+}
+
+/* kramdown wraps items of "loose" lists in <p>; keep them as tight as the rest. */
+.legal-doc li > p {
+  margin: 0;
+}
+
+.legal-doc li > p + p,
+.legal-doc li > p + ul,
+.legal-doc li > ul + p {
+  margin-top: 0.5em;
+}
+
+.legal-doc strong {
+  font-weight: 600;
+  color: var(--color-paper);
+}
+
+.legal-doc a {
+  color: var(--color-paper);
+  text-decoration: underline;
+  text-decoration-color: var(--color-slate-pill);
+  text-underline-offset: 3px;
+}
+
+.legal-doc a:hover {
+  text-decoration-color: var(--color-paper);
+}
+
+.legal-doc a:focus-visible {
+  outline: 1px solid var(--color-paper);
+  outline-offset: 3px;
+}

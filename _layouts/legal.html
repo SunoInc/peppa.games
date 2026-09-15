@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="{{ page.lang | default: 'en' }}" class="legal">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ page.title }}</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <!-- Relative paths (page.root) so the pages work both on the
+       /peppa.games/ project URL and on a future custom domain. -->
+  <link rel="stylesheet" href="{{ page.root }}style.css" />
+  <link rel="stylesheet" href="{{ page.root }}legal.css" />
+  <link rel="alternate" hreflang="{{ page.alt_lang }}" href="{{ page.alt_href }}" />
+</head>
+<body>
+
+  <header class="kv-nav">
+    <a href="{{ page.root }}" class="kv-nav__logo"><strong>suno</strong>suno</a>
+
+    <button type="button" class="kv-nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu">
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <nav id="site-menu" class="menu-panel" aria-label="Site menu">
+    <ul class="menu-panel__list">
+      <li><a class="menu-panel__link" href="{{ page.root }}">Home</a></li>
+      <li><a class="menu-panel__link" href="{{ page.root }}terms/"{% if page.menu_id == 'terms-en' %} aria-current="page"{% endif %}>Terms of Service</a></li>
+      <li><a class="menu-panel__link" href="{{ page.root }}ja/terms/" lang="ja"{% if page.menu_id == 'terms-ja' %} aria-current="page"{% endif %}>利用規約</a></li>
+    </ul>
+  </nav>
+
+  <main class="legal-doc">
+    <p class="legal-doc__lang">
+      <a href="{{ page.alt_href }}" hreflang="{{ page.alt_lang }}" lang="{{ page.alt_lang }}">{{ page.alt_label }}</a>
+    </p>
+{{ content }}
+  </main>
+
+  <div class="cursor-dot" aria-hidden="true"></div>
+
+  <script src="{{ page.root }}cursor.js"></script>
+  <script src="{{ page.root }}script.js"></script>
+</body>
+</html>

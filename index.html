@@ -23,7 +23,7 @@
     <header class="kv-nav">
       <a href="#" class="kv-nav__logo"><strong>suno</strong>suno</a>
 
-      <button type="button" class="kv-nav__toggle" aria-label="Open menu" aria-expanded="false">
+      <button type="button" class="kv-nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu">
         <span></span>
         <span></span>
       </button>
@@ -46,6 +46,14 @@
       <span class="scroll-badge__dot"></span>
     </div>
   </section>
+
+  <nav id="site-menu" class="menu-panel" aria-label="Site menu">
+    <ul class="menu-panel__list">
+      <li><a class="menu-panel__link" href="./" aria-current="page">Home</a></li>
+      <li><a class="menu-panel__link" href="terms/">Terms of Service</a></li>
+      <li><a class="menu-panel__link" href="ja/terms/" lang="ja">利用規約</a></li>
+    </ul>
+  </nav>
 
   <div class="cursor-dot" aria-hidden="true"></div>
 

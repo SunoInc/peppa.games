@@ -140,7 +140,7 @@ a { color: inherit; text-decoration: none; }
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10;
+  z-index: 30; /* above .menu-panel so the toggle can close it */
   height: var(--nav-height);
   display: flex;
   align-items: center;
@@ -160,8 +160,8 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* Hamburger toggle — two hairlines that ease into an X, matching
-   monopo's minimal top-right menu affordance. Not wired to a panel yet
-   since this build is KV-only. */
+   monopo's minimal top-right menu affordance. Opens .menu-panel
+   (script.js). */
 .kv-nav__toggle {
   appearance: none;
   background: none;
@@ -298,4 +298,69 @@ a { color: inherit; text-decoration: none; }
 
 .cursor-dot.is-visible {
   opacity: 1;
+}
+
+/* ==========================================================================
+   Menu panel — full-screen overlay opened by the top-right toggle.
+   Sits under .kv-nav (z 30) so the same toggle morphs into the close X.
+   ========================================================================== */
+
+.menu-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  padding: var(--nav-height) var(--spacing-64) var(--spacing-48);
+  background: var(--color-obsidian);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s var(--ease-glide), visibility 0s linear 0.6s;
+}
+
+.menu-panel.is-open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.6s var(--ease-glide);
+}
+
+.menu-panel__list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  max-width: var(--page-max-width);
+  display: grid;
+  gap: var(--spacing-12);
+}
+
+.menu-panel__link {
+  font-family: var(--font-roobert);
+  font-weight: 300;
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--color-paper);
+  transition: color 0.4s ease;
+}
+
+.menu-panel__link:hover,
+.menu-panel__link[aria-current="page"] {
+  color: var(--color-felt-gray);
+}
+
+.menu-panel__link:focus-visible,
+.kv-nav__toggle:focus-visible {
+  outline: 1px solid var(--color-paper);
+  outline-offset: 6px;
+}
+
+html.menu-open { overflow: hidden; }
+
+@media (max-width: 720px) {
+  .menu-panel { padding: var(--nav-height) var(--spacing-28) var(--spacing-48); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-panel, .menu-panel.is-open, .kv-nav__toggle span { transition: none; }
 }
