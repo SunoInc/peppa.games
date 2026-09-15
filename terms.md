@@ -102,9 +102,7 @@ To the extent permitted by law, the Service is provided "as is" and "as availabl
 
 ## 12. Limitation of Liability
 
-- To the fullest extent permitted by law, Peppa is not liable for any damages arising from or relating to the Service or these Terms, whether based on contract, tort (including negligence), or any other legal theory. This includes loss of data (including data stored only on your device), loss of profits or goodwill, interruption or discontinuation of the Service, disputes between users, User Content, and third-party services.
-- If Peppa is nevertheless found liable, then to the fullest extent permitted by law, our liability is limited to direct and ordinary damages you actually suffered, up to the total amount you paid for the Service in the 12 months before the event giving rise to the claim.
-- The two paragraphs above do not apply to damages caused by our willful misconduct or gross negligence, or where applicable law (including Japan's Consumer Contract Act) does not allow liability to be excluded or limited.
+To the fullest extent permitted by law, Peppa is not liable for any damages arising from or relating to the Service or these Terms, whether based on contract, tort (including negligence), or any other legal theory. This includes loss of data (including data stored only on your device), loss of profits or goodwill, interruption or discontinuation of the Service, disputes between users, User Content, and third-party services.
 
 ## 13. Indemnity
 
