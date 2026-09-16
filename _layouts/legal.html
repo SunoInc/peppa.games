@@ -31,6 +31,7 @@
       <li><a class="menu-panel__link" href="{{ page.root }}">Home</a></li>
       <!-- 日本語版はページ内の言語切り替えから開く。メニューには英語版だけを載せる(2026-09-16) -->
       <li><a class="menu-panel__link" href="{{ page.root }}terms/"{% if page.menu_id contains 'terms' %} aria-current="page"{% endif %}>Terms of Service</a></li>
+      <li><a class="menu-panel__link" href="{{ page.root }}privacy/"{% if page.menu_id contains 'privacy' %} aria-current="page"{% endif %}>Privacy Policy</a></li>
     </ul>
   </nav>
 

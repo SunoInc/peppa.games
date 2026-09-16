@@ -1,5 +1,4 @@
 ---
-layout: legal
 title: Peppa Terms of Service
 lang: en
 permalink: /terms/
@@ -14,7 +13,7 @@ alt_lang: ja
 
 Last updated: September 16, 2026
 
-These Terms of Service ("Terms") govern your use of the Peppa mobile application and related services (together, the "Service") provided by the Peppa Team ("Peppa," "we," "us," or "our"). By creating an account or otherwise using the Service, you agree to these Terms and to our Privacy Policy. If you do not agree, do not use the Service.
+These Terms of Service ("Terms") govern your use of the Peppa mobile application and related services (together, the "Service") provided by the Peppa Team ("Peppa," "we," "us," or "our"). By creating an account or otherwise using the Service, you agree to these Terms and to our [Privacy Policy](../privacy/). If you do not agree, do not use the Service.
 
 ## 1. Who Can Use Peppa
 
@@ -40,6 +39,7 @@ These Terms of Service ("Terms") govern your use of the Peppa mobile application
 
 - Peppa helps you track the games you want to play, are playing, and have beaten; rate and review games; follow other players; send game requests; create lists and votes; and save links to check later.
 - Game information in Peppa, such as titles, cover art, descriptions, release dates, and platforms, is provided by third parties, including IGDB. This information may be inaccurate or incomplete. Game titles, cover art, and related marks belong to their respective owners. Peppa is not affiliated with or endorsed by any game publisher, developer, platform holder, or IGDB, unless we clearly say so.
+- We may show ads in the app. Our [Privacy Policy](../privacy/) explains what that involves and the choices you have.
 - We may add, change, suspend, or discontinue any part of the Service at any time.
 - Data stored only on your device is not backed up by us. We are not responsible for losing that data, for example when you change devices or delete the app.
 
@@ -48,6 +48,7 @@ These Terms of Service ("Terms") govern your use of the Peppa mobile application
 - Some features may require payment. Purchases are processed by Apple through the App Store and are subject to Apple's terms and policies.
 - Subscriptions renew automatically unless you cancel at least 24 hours before the end of the current period. You can manage or cancel a subscription in your Apple Account settings. Deleting the app or your Peppa account does not cancel a subscription.
 - If we offer a free trial, any unused portion of the trial is forfeited when you purchase a subscription.
+- If we offer an ad-free purchase, buying it removes ads from the app for as long as it is active.
 - Refunds are handled by Apple under its policies. We cannot issue refunds for App Store purchases.
 - We may change prices or the features included in a paid plan. We will give notice where required by law or by App Store rules.
 
