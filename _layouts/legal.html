@@ -29,8 +29,8 @@
   <nav id="site-menu" class="menu-panel" aria-label="Site menu">
     <ul class="menu-panel__list">
       <li><a class="menu-panel__link" href="{{ page.root }}">Home</a></li>
-      <li><a class="menu-panel__link" href="{{ page.root }}terms/"{% if page.menu_id == 'terms-en' %} aria-current="page"{% endif %}>Terms of Service</a></li>
-      <li><a class="menu-panel__link" href="{{ page.root }}ja/terms/" lang="ja"{% if page.menu_id == 'terms-ja' %} aria-current="page"{% endif %}>利用規約</a></li>
+      <!-- 日本語版はページ内の言語切り替えから開く。メニューには英語版だけを載せる(2026-09-16) -->
+      <li><a class="menu-panel__link" href="{{ page.root }}terms/"{% if page.menu_id contains 'terms' %} aria-current="page"{% endif %}>Terms of Service</a></li>
     </ul>
   </nav>
 
