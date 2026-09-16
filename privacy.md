@@ -1,4 +1,5 @@
 ---
+layout: legal
 title: Peppa Privacy Policy
 lang: en
 permalink: /privacy/

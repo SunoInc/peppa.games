@@ -1,4 +1,5 @@
 ---
+layout: legal
 title: Peppa 利用規約
 lang: ja
 permalink: /ja/terms/

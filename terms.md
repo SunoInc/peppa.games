@@ -1,4 +1,5 @@
 ---
+layout: legal
 title: Peppa Terms of Service
 lang: en
 permalink: /terms/
