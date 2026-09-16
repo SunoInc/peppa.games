@@ -33,20 +33,41 @@ html[lang="ja"] .legal-doc {
   margin: 0 0 var(--spacing-40);
 }
 
-/* Two classes deep so it beats the generic `.legal-doc a` underline below. */
-.legal-doc .legal-doc__lang a {
-  text-decoration: none;
-  font-size: var(--text-caption);
-  letter-spacing: 0.08em;
-  color: var(--color-paper);
+/* 2つの言語を並べた1つのボタン。今見ているほうは黒地に白文字(このサイトの既存の見た目)、
+   もう一方は白地に黒文字にして、押せることが分かるようにする。 */
+.legal-doc__lang-group {
+  display: inline-flex;
   border: 1px solid var(--color-slate-pill);
   border-radius: var(--radius-full);
-  padding: 6px 14px;
-  transition: border-color 0.4s ease;
+  overflow: hidden;
 }
 
-.legal-doc__lang a:hover {
-  border-color: var(--color-paper);
+.legal-doc__lang-option {
+  display: flex;
+  align-items: center;
+  padding: 7px 16px;
+  font-size: var(--text-caption);
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+/* 今見ている言語 */
+.legal-doc__lang-option[aria-current] {
+  background: var(--color-obsidian);
+  color: var(--color-paper);
+}
+
+/* もう一方の言語。クラスを2つ重ねて、下の`.legal-doc a`の下線より優先させる。 */
+.legal-doc a.legal-doc__lang-option {
+  background: var(--color-paper);
+  color: var(--color-obsidian);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.legal-doc a.legal-doc__lang-option:hover {
+  opacity: 0.75;
 }
 
 .legal-doc h1 {

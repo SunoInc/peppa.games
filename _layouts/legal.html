@@ -35,9 +35,18 @@
   </nav>
 
   <main class="legal-doc">
-    <p class="legal-doc__lang">
-      <a href="{{ page.alt_href }}" hreflang="{{ page.alt_lang }}" lang="{{ page.alt_lang }}">{{ page.alt_label }}</a>
-    </p>
+    <!-- 言語切り替え。今見ているほうを塗りつぶし、もう一方を白地で出す(2026-09-16) -->
+    <nav class="legal-doc__lang" aria-label="Language">
+      <div class="legal-doc__lang-group">
+        {% if page.lang == 'ja' %}
+        <a class="legal-doc__lang-option" href="{{ page.alt_href }}" hreflang="en" lang="en">English</a>
+        <span class="legal-doc__lang-option" aria-current="true" lang="ja">日本語</span>
+        {% else %}
+        <span class="legal-doc__lang-option" aria-current="true" lang="en">English</span>
+        <a class="legal-doc__lang-option" href="{{ page.alt_href }}" hreflang="ja" lang="ja">日本語</a>
+        {% endif %}
+      </div>
+    </nav>
 {{ content }}
   </main>
 
