@@ -146,3 +146,12 @@ html[lang="ja"] .legal-doc {
   outline: 1px solid var(--color-paper);
   outline-offset: 3px;
 }
+
+/* Legal pages have no KV to anchor to, so the shared bottom-right links
+   sit in normal flow under the document, aligned to its column. */
+html.legal .site-links {
+  position: static;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-28) var(--spacing-48);
+}

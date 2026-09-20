@@ -133,14 +133,14 @@ a { color: inherit; text-decoration: none; }
 
 .kv-nav {
   /* Anchored to the true viewport edges (not the centered 1078px content
-     column) so the logo and hamburger sit out toward the sides, matching
+     column) so the logo sits out toward the sides, matching
      monopo.vn's nav — on a wide screen a centered max-width nav left them
      stranded far from the actual edges. */
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 30; /* above .menu-panel so the toggle can close it */
+  z-index: 30;
   height: var(--nav-height);
   display: flex;
   align-items: center;
@@ -157,44 +157,6 @@ a { color: inherit; text-decoration: none; }
 
 .kv-nav__logo strong {
   font-weight: 600;
-}
-
-/* Hamburger toggle — two hairlines that ease into an X, matching
-   monopo's minimal top-right menu affordance. Opens .menu-panel
-   (script.js). */
-.kv-nav__toggle {
-  appearance: none;
-  background: none;
-  border: 0;
-  padding: var(--spacing-8);
-  margin: 0 calc(var(--spacing-8) * -1);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 6px;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-}
-
-.kv-nav__toggle span {
-  display: block;
-  width: 100%;
-  height: 1px;
-  background: var(--color-paper);
-  transition: transform 0.8s var(--ease-glide), opacity 0.4s ease;
-}
-
-.kv-nav__toggle:hover span {
-  opacity: 0.7;
-}
-
-.kv-nav__toggle.is-open span:first-child {
-  transform: translateY(3.5px) rotate(45deg);
-}
-
-.kv-nav__toggle.is-open span:last-child {
-  transform: translateY(-3.5px) rotate(-45deg);
 }
 
 @media (max-width: 720px) {
@@ -300,66 +262,41 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ==========================================================================
-   Menu panel — full-screen overlay opened by the top-right toggle.
-   Sits under .kv-nav (z 30) so the same toggle morphs into the close X.
+   Bottom-right legal links — "Terms & Privacy" / "© 2026 SUNOSUNO".
+   Mirrors the scroll badge's 28px inset on the opposite corner.
    ========================================================================== */
 
-.menu-panel {
-  position: fixed;
-  inset: 0;
-  z-index: 20;
-  display: flex;
-  align-items: center;
-  padding: var(--nav-height) var(--spacing-64) var(--spacing-48);
-  background: var(--color-obsidian);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.6s var(--ease-glide), visibility 0s linear 0.6s;
-}
-
-.menu-panel.is-open {
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.6s var(--ease-glide);
-}
-
-.menu-panel__list {
-  list-style: none;
-  margin: 0 auto;
-  padding: 0;
-  width: 100%;
-  max-width: var(--page-max-width);
+.site-links {
+  position: absolute;
+  right: var(--spacing-28);
+  bottom: var(--spacing-28);
+  z-index: 10;
+  margin: 0;
   display: grid;
-  gap: var(--spacing-12);
-}
-
-.menu-panel__link {
+  gap: var(--spacing-8);
+  text-align: right;
   font-family: var(--font-roobert);
-  font-weight: 300;
-  font-size: clamp(32px, 5vw, 56px);
-  line-height: 1.15;
-  letter-spacing: -0.01em;
+  font-size: var(--text-caption);
+  line-height: var(--leading-caption);
   color: var(--color-paper);
-  transition: color 0.4s ease;
 }
 
-.menu-panel__link:hover,
-.menu-panel__link[aria-current="page"] {
-  color: var(--color-felt-gray);
+.site-links__row:last-child {
+  opacity: 0.6;
 }
 
-.menu-panel__link:focus-visible,
-.kv-nav__toggle:focus-visible {
+.site-links a {
+  /* padding + negative margin enlarge the tap target without moving the text */
+  padding: var(--spacing-8) 2px;
+  margin: calc(var(--spacing-8) * -1) -2px;
+  transition: opacity 0.4s ease;
+}
+
+.site-links a:hover {
+  opacity: 0.6;
+}
+
+.site-links a:focus-visible {
   outline: 1px solid var(--color-paper);
-  outline-offset: 6px;
-}
-
-html.menu-open { overflow: hidden; }
-
-@media (max-width: 720px) {
-  .menu-panel { padding: var(--nav-height) var(--spacing-28) var(--spacing-48); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .menu-panel, .menu-panel.is-open, .kv-nav__toggle span { transition: none; }
+  outline-offset: 2px;
 }
