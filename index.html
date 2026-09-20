@@ -44,7 +44,8 @@
           <path id="scrollCircle" d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" />
         </defs>
         <text>
-          <textPath href="#scrollCircle" startOffset="0%">SCROLL DOWN&#160;&#160;·&#160;&#160;SCROLL DOWN&#160;&#160;·&#160;&#160;</textPath>
+          <!-- textLength = circumference (2π·38) so the text fills the ring evenly -->
+          <textPath href="#scrollCircle" startOffset="0" textLength="238" lengthAdjust="spacing">DOWNLOAD&#160;ON&#160;APP&#160;STORE&#160;&#160;·&#160;&#160;</textPath>
         </text>
       </svg>
       <span class="scroll-badge__dot"></span>
